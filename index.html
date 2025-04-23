@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batman - The Dark Knight</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-color: #0a0a0a;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+        
+        .bat-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            opacity: 0.4;
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        .content-section {
+            background-color: #111;
+            color: #f0f0f0;
+        }
+        
+        .batmobile-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .batmobile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        
+        .gadget-item {
+            background-color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+        
+        .gadget-item:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+        
+        .villain-card {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .villain-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .villain-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .villain-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .villain-card:hover .villain-info {
+            transform: translateY(0);
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+        }
+        
+        .custom-shape-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        
+        .custom-shape-divider .shape-fill {
+            fill: #111111;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3 fixed-top" style="z-index: 100;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-bat text-warning me-2"></i>BATMAN
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-yellow-400" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-yellow-400" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-yellow-400" href="#vehicles">Vehicles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-yellow-400" href="#gadgets">Gadgets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-yellow-400" href="#villains">Villains</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover:text-yellow-400" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section d-flex align-items-center justify-content-center">
+        <div class="hero-overlay"></div>
+        <img src="/api/placeholder/800/800" alt="Batman Symbol" class="bat-symbol">
+        <div class="container position-relative" style="z-index: 3;">
+            <div class="row">
+                <div class="col-lg-8 text-center mx-auto" data-aos="fade-up">
+                    <h1 class="display-1 fw-bold text-white mb-4">I'M BATMAN</h1>
+                    <p class="lead text-white-50 mb-5">The Dark Knight of Gotham City</p>
+                    <button class="btn btn-lg bg-yellow-500 hover:bg-yellow-600 text-black fw-bold px-5 py-3 rounded-pill">
+                        EXPLORE GOTHAM
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="custom-shape-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="/api/placeholder/600/800" alt="Batman" class="img-fluid rounded-lg shadow-lg">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="display-4 fw-bold mb-4">The Dark Knight</h2>
+                    <p class="lead mb-4">Batman is the superhero protector of Gotham City, a tortured, brooding vigilante dressed as a bat who fights against evil and strikes fear into the hearts of criminals everywhere.</p>
+                    <div class="d-flex mb-4">
+                        <div class="me-4">
+                            <h3 class="h5 text-yellow-400">Real Name</h3>
+                            <p>Bruce Wayne</p>
+                        </div>
+                        <div>
+                            <h3 class="h5 text-yellow-400">Base</h3>
+                            <p>Gotham City</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4">
+                            <h3 class="h5 text-yellow-400">Abilities</h3>
+                            <p>Genius-level intellect, Master detective, Peak human physical condition, Martial arts master</p>
+                        </div>
+                    </div>
+                    <p class="mb-4">Orphaned as a child when his parents were murdered before his eyes, Bruce Wayne traveled the world training himself to intellectual and physical perfection and learning a variety of crime-fighting skills.</p>
+                    <button class="btn bg-yellow-500 hover:bg-yellow-600 text-black fw-bold px-4 py-3 rounded-pill">LEARN MORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicles Section -->
+    <section id="vehicles" class="content-section py-5 bg-black">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold">BATMOBILES & VEHICLES</h2>
+                <p class="lead text-white-50">The Dark Knight's impressive collection of custom vehicles</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card batmobile-card text-white h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Tumbler">
+                        <div class="card-body">
+                            <h3 class="card-title h4">The Tumbler</h3>
+                            <p class="card-text">Heavily armored tactical assault vehicle capable of jumps without needing a ramp. Features include stealth mode, missile launchers and dual front machine guns.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card batmobile-card text-white h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Batpod">
+                        <div class="card-body">
+                            <h3 class="card-title h4">Batpod</h3>
+                            <p class="card-text">High-powered motorcycle with mounted cannons, deployed as an escape vehicle from the damaged Tumbler with ability to perform extreme maneuvers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card batmobile-card text-white h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Batwing">
+                        <div class="card-body">
+                            <h3 class="card-title h4">The Bat</h3>
+                            <p class="card-text">Advanced aerial vehicle with VTOL capabilities, armed with machine guns and missiles, capable of precision maneuvering between city buildings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gadgets Section -->
+    <section id="gadgets" class="content-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold">ARSENAL & GADGETS</h2>
+                <p class="lead text-white-50">Cutting-edge technology designed by Wayne Enterprises</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gadget-item p-4 rounded-lg text-center">
+                        <div class="bg-yellow-500 text-black rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-shield-alt fa-2x"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Batsuit</h3>
+                        <p class="text-white-50">Kevlar bi-weave with reinforced joints. Lightweight, flexible armor plating.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gadget-item p-4 rounded-lg text-center">
+                        <div class="bg-yellow-500 text-black rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-bomb fa-2x"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Batarangs</h3>
+                        <p class="text-white-50">Sharpened, metal, bat-shaped throwing weapons. Various specialized types available.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gadget-item p-4 rounded-lg text-center">
+                        <div class="bg-yellow-500 text-black rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-eye fa-2x"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Detective Vision</h3>
+                        <p class="text-white-50">Advanced HUD system that highlights enemies, weapons, and structural weaknesses.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gadget-item p-4 rounded-lg text-center">
+                        <div class="bg-yellow-500 text-black rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-bolt fa-2x"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Grapnel Gun</h3>
+                        <p class="text-white-50">Fires a strong, retractable line used for scaling buildings quickly and efficiently.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Villains Section -->
+    <section id="villains" class="content-section py-5 bg-black">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold">ROGUES GALLERY</h2>
+                <p class="lead text-white-50">Gotham's most notorious criminals</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="villain-card rounded-lg overflow-hidden">
+                        <img src="/api/placeholder/600/500" alt="Joker" class="w-100">
+                        <div class="villain-info">
+                            <h3 class="h4 text-white">The Joker</h3>
+                            <p class="text-white-50">Criminal mastermind with a warped sense of humor and unpredictable violent tendencies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="villain-card rounded-lg overflow-hidden">
+                        <img src="/api/placeholder/600/500" alt="Two-Face" class="w-100">
+                        <div class="villain-info">
+                            <h3 class="h4 text-white">Two-Face</h3>
+                            <p class="text-white-50">Former District Attorney Harvey Dent, now a split-personality criminal who leaves decisions to chance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="villain-card rounded-lg overflow-hidden">
+                        <img src="/api/placeholder/600/500" alt="Riddler" class="w-100">
+                        <div class="villain-info">
+                            <h3 class="h4 text-white">The Riddler</h3>
+                            <p class="text-white-50">Genius with an obsessive need to demonstrate his intellectual superiority through elaborate riddles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="display-4 fw-bold mb-4">SIGNAL BATMAN</h2>
+                    <p class="lead mb-4">Need the Dark Knight's assistance? Leave a message.</p>
+                    <p class="text-white-50 mb-4">Commissioner Gordon has direct access to the Bat-Signal. For emergencies only.</p>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-yellow-500 text-black rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="h5 m-0">Location</h3>
+                            <p class="text-white-50 m-0">Gotham City</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="bg-yellow-500 text-black rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="h5 m-0">Availability</h3>
+                            <p class="text-white-50 m-0">Primarily after dark</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="bg-black p-4 rounded-lg shadow-lg">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label text-white-50">Your Name</label>
+                                <input type="text" class="form-control bg-gray-800 border-0 text-white" id="name" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-white-50">Email Address</label>
+                                <input type="email" class="form-control bg-gray-800 border-0 text-white" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label text-white-50">Message</label>
+                                <textarea class="form-control bg-gray-800 border-0 text-white" id="message" rows="5" placeholder="Detail your emergency"></textarea>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn bg-yellow-500 hover:bg-yellow-600 text-black fw-bold px-4 py-3 rounded-pill">SEND SIGNAL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="h4 text-white mb-4">BATMAN</h3>
+                    <p class="text-white-50">The Dark Knight. The World's Greatest Detective. The Caped Crusader.</p>
+                    <div class="d-flex mt-4">
+                        <a href="#" class="text-white-50 me-3 hover:text-yellow-400">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white-50 me-3 hover:text-yellow-400">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white-50 hover:text-yellow-400">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h3 class="h6 text-white mb-4">LINKS</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#hero" class="text-white-50 text-decoration-none hover:text-yellow-400">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none hover:text-yellow-400">About</a></li>
+                        <li class="mb-2"><a href="#vehicles" class="text-white-50 text-decoration-none hover:text-yellow-400">Vehicles</a></li>
+                        <li class="mb-2"><a href="#gadgets" class="text-white-50 text-decoration-none hover:text-yellow-400">Gadgets</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h3 class="h6 text-white mb-4">ALLIES</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover:text-yellow-400">Robin</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover:text-yellow-400">Nightwing</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover:text-yellow-400">Batgirl</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover:text-yellow-400">Alfred Pennyworth</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3 class="h6 text-white mb-4">NEWSLETTER</h3>
+                    <p class="text-white-50 mb-3">Stay updated with the latest from Gotham City.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control bg-gray-800 border-0 text-white" placeholder="Your email">
+                        <button class="btn bg-yellow-500 text-black" type="button">SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-gray-700">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 m-0">&copy; 2025 Batman. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-white-50 m-0">A DC Comics Character</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Smooth scrolling for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black', 'shadow');
+            } else {
+                navbar.classList.remove('shadow');
+            }
+        });
+    </script>
+</body>
+</html>
